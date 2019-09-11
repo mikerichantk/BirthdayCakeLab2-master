@@ -34,7 +34,8 @@ public class CakeView extends SurfaceView {
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
 
-
+    // init private instance of CakeModel
+    private CakeModel model_1 = new CakeModel();
 
     /**
      * ctor must be overridden here as per standard Java inheritance practice.  We need it
@@ -125,5 +126,9 @@ public class CakeView extends SurfaceView {
 
     }//onDraw
 
+    // getter to CakeModel
+    public CakeModel getModel(){
+        return model_1;
+    }
 }//class CakeView
 
