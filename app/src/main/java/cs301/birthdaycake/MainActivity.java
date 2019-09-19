@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         candles.setOnCheckedChangeListener(myCakeController);
         SeekBar seekBar = (SeekBar)findViewById(R.id.seekbarCandles);
         seekBar.setOnSeekBarChangeListener(myCakeController);
+        myCakeView.setOnTouchListener(myCakeController);
     }
     public void goodbye(View button) {
         Log.i("theInfoTag", "Goodbye");

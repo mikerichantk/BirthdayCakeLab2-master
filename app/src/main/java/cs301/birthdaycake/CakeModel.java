@@ -7,6 +7,10 @@ public class CakeModel{
     public boolean frosted = true;
     public boolean hasCandles = true;
 
+    public float  x;
+    public float y;
+
+
     // constructor
     public CakeModel(){
 
@@ -38,5 +42,21 @@ public class CakeModel{
 
     public void setNumCandles(int num){
         numCandles = num;
+    }
+
+    public void setXY(float numX, float numY)
+    {
+        x=numX;
+        y=numY;
+    }
+
+    public float getX()
+    {
+        return x;
+    }
+
+    public float getY()
+    {
+        return y;
     }
 }

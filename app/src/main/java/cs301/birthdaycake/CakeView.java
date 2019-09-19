@@ -5,7 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
+import android.view.View;
+import android.view.ViewTreeObserver;
 
 public class CakeView extends SurfaceView {
 
@@ -63,6 +66,8 @@ public class CakeView extends SurfaceView {
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
+
+
     }
 
     /**
@@ -87,6 +92,8 @@ public class CakeView extends SurfaceView {
         canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
 
     }
+
+
 
     /**
      * onDraw is like "paint" in a regular Java program.  While a Canvas is
@@ -122,31 +129,36 @@ public class CakeView extends SurfaceView {
 
         //Now a candle in the center
         if(model_1.getHasCandles()) {
-            if(model_1.getNumCandles() == 1) {
+            if (model_1.getNumCandles() == 1) {
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
-            }
-            else if(model_1.getNumCandles() == 2){
+            } else if (model_1.getNumCandles() == 2) {
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
-            }
-            else if(model_1.getNumCandles() == 3){
+            } else if (model_1.getNumCandles() == 3) {
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 6, cakeTop);
-            }
-            else if(model_1.getNumCandles() == 4){
+            } else if (model_1.getNumCandles() == 4) {
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 6, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 4, cakeTop);
-            }
-            else if(model_1.getNumCandles() == 5){
+            } else if (model_1.getNumCandles() == 5) {
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 6, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 4, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 5, cakeTop);
             }
+
+            Paint color = new Paint();
+            color.setColor(Color.BLACK);
+            canvas.drawLine(model_1.getX()+25, model_1.getY(), model_1.getX()+25, model_1.getY()+200, color);
+            color.setColor(Color.BLUE);
+            canvas.drawOval(model_1.getX(), model_1.getY(), model_1.getX()+50, model_1.getY()+75, color);
+            //color.setColor(Color.WHITE);
+            //canvas.drawCircle(10, 10, 10, color);
+
         }
 
     }//onDraw
