@@ -18,13 +18,14 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint textPaint = new Paint();
 
 
     /* These constants define the dimensions of the cake.  While defining constants for things
-        like this is good practice, we could be calculating these better by detecting
-        and adapting to different tablets' screen sizes and resolutions.  I've deliberately
-        stuck with hard-coded values here to ease the introduction for CS371 students.
-     */
+            like this is good practice, we could be calculating these better by detecting
+            and adapting to different tablets' screen sizes and resolutions.  I've deliberately
+            stuck with hard-coded values here to ease the introduction for CS371 students.
+         */
     public static final float cakeTop = 400.0f;
     public static final float cakeLeft = 100.0f;
     public static final float cakeWidth = 1200.0f;
@@ -63,6 +64,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        textPaint.setColor(Color.RED);
+        textPaint.setTextSize(50);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -153,11 +156,12 @@ public class CakeView extends SurfaceView {
                 drawCandle(canvas, cakeLeft + cakeWidth / 5, cakeTop);
             }
         }
-        canvas.drawText("X: " + model_1.getX() + " Y: " + model_1.getY(), 500,500, outerFlamePaint);
+        canvas.drawText("X: " + model_1.getX() + " Y: " + model_1.getY(), 100,400, textPaint);
 
     }//onDraw
 
     // getter to CakeModel
+
     public CakeModel getModel(){
         return model_1;
     }
