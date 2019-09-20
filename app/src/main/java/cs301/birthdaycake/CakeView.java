@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.ViewTreeObserver;
 
 public class CakeView extends SurfaceView {
 
@@ -19,6 +18,8 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint textPaint = new Paint();
+
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -63,10 +64,10 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        textPaint.setColor(Color.RED);
+        textPaint.setTextSize(50);
 
         setBackgroundColor(Color.WHITE);  //better than black default
-
-
 
     }
 
@@ -93,12 +94,10 @@ public class CakeView extends SurfaceView {
 
     }
 
-
-
     /**
      * onDraw is like "paint" in a regular Java program.  While a Canvas is
      * conceptually similar to a Graphics in javax.swing, the implementation has
-     * many subtle differences.  Show care and read the documentation.
+     *      * many subtle differences.  Show care and read the documentation.
      *
      * This method will draw a birthday cake
      */
@@ -129,21 +128,25 @@ public class CakeView extends SurfaceView {
 
         //Now a candle in the center
         if(model_1.getHasCandles()) {
-            if (model_1.getNumCandles() == 1) {
+            if(model_1.getNumCandles() == 1) {
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
-            } else if (model_1.getNumCandles() == 2) {
+            }
+            else if(model_1.getNumCandles() == 2){
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
-            } else if (model_1.getNumCandles() == 3) {
+            }
+            else if(model_1.getNumCandles() == 3){
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 6, cakeTop);
-            } else if (model_1.getNumCandles() == 4) {
+            }
+            else if(model_1.getNumCandles() == 4){
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 6, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 4, cakeTop);
-            } else if (model_1.getNumCandles() == 5) {
+            }
+            else if(model_1.getNumCandles() == 5){
                 drawCandle(canvas, cakeLeft + cakeWidth / 2, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 3, cakeTop);
                 drawCandle(canvas, cakeLeft + cakeWidth / 6, cakeTop);
@@ -160,6 +163,7 @@ public class CakeView extends SurfaceView {
             //canvas.drawCircle(10, 10, 10, color);
 
         }
+        canvas.drawText("X: " + model_1.getX() + " Y: " + model_1.getY(), 100,400, textPaint);
 
     }//onDraw
 

@@ -6,10 +6,8 @@ public class CakeModel{
     public int numCandles = 2;
     public boolean frosted = true;
     public boolean hasCandles = true;
-
-    public float  x;
-    public float y;
-
+    public float touchX = 0;
+    public float touchY = 0;
 
     // constructor
     public CakeModel(){
@@ -44,19 +42,16 @@ public class CakeModel{
         numCandles = num;
     }
 
-    public void setXY(float numX, float numY)
-    {
-        x=numX;
-        y=numY;
+    public void setXY(float numX, float numY){
+            touchX = numX;
+            touchY = numY;
     }
 
-    public float getX()
-    {
-        return x;
+    public float getX(){
+        return touchX;
     }
 
-    public float getY()
-    {
-        return y;
+    public float getY(){
+        return touchY;
     }
 }
